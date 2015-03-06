@@ -1,6 +1,6 @@
 {
   "name": "Touch Keyboard",
-  "description": "Keyboard for mobile or any other touch screen devices inspired on Android usability",
+  "description": "Keyboard for mobile or any other touch screen devices. It is inspired on Android usability.",
   "version": "1.0",
   "permissions": [
     "tabs", "<all_urls>"
