@@ -26,6 +26,7 @@
 	float: left;
 	width: 9.4vw;
 	height: 40px;
+	line-height: 40px;
 	margin: 0.2vw;
 	padding: 0;
 	border: 1px solid #7f7f7f;
@@ -39,7 +40,6 @@
 	transition: background-color 0.15s;
 	font-family: Helvetica, arial, sans-serif;
 	font-size: 24px;
-	line-height: 40px;
 }
 #tk button.active {
 	background-color: #393939;

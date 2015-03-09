@@ -9,7 +9,7 @@
 	var currentTooltip;
 	var currentKeyboard;
 
-	var shiftOption = 0;
+	var shiftOption = 1;
 
 	var timerId;
 
@@ -35,7 +35,7 @@
 				$(this).attr("src", baseUrl+$(this).attr("src"));
 			});
 
-			inputList = $("input").focus(onFocus).blur(onBlur);
+			inputList = $("input[type=text], input[type=password]").focus(onFocus).blur(onBlur);
 			
 			keyboard.appendTo("body");
 		});
@@ -58,11 +58,17 @@
 	{
 		setKeyboard(1);
 		keyboard.show();
+
+		$("#booklet").css({ "padding-bottom": keyboard.outerHeight()+"px" });
+		$("#booklet  #dialog_buttons").css({ "bottom": keyboard.outerHeight()+"px" });
 	}
 		
 	function hideKeyboard()
 	{
 		keyboard.hide();
+
+		$("#booklet").css({ "padding-bottom": "0px" });
+		$("#booklet  #dialog_buttons").css({ "bottom": "0px" });
 	}
 
 	function onMouseDown(e)
@@ -182,13 +188,13 @@
 				input.value = input.value.substr(0, pos)+input.value.substr(posEnd);
 				input.selectionStart = pos;
 				input.selectionEnd = pos;
-				if (shiftOption == 1) {
+				if (shiftOption == 2) {
 					setShiftOption(1);
 				}
 				break;
 
 			default:
-				if (shiftOption > 0) {
+				if (shiftOption > 1) {
 					key = key.toUpperCase();
 				}
 				var pos = input.selectionStart;
@@ -196,7 +202,7 @@
 				input.value = input.value.substr(0, pos)+key+input.value.substr(posEnd);
 				input.selectionStart = pos+1;
 				input.selectionEnd = pos+1;
-				if (shiftOption == 1) {
+				if (shiftOption == 2) {
 					setShiftOption(1);
 				}
 				break;
